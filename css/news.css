@@ -1,8 +1,22 @@
+DIV.section {
+	background-color: #F2F2F2;
+	height: 24px;
+}
+
+DIV.section H1 {
+	margin: 0;
+	font-size: 14px;
+	font-weight: bold ;
+	color: #535353;
+	margin-top: -8px;
+	margin-left: 20px;
+}
+
 DIV.overview H2 {
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: bold ;
 	color: #AB1413;
-	line-height: 16px;
+	line-height: 18px;
 }
 
 .news {
