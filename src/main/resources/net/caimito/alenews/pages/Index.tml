@@ -1,0 +1,5 @@
+<html t:type="frontpage" title="ale-news Index"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+<p>${message:greeting}</p>
+</html>
