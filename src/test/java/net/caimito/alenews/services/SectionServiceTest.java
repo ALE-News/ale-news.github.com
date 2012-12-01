@@ -4,6 +4,7 @@ import static org.junit.Assert.* ;
 import static org.hamcrest.Matchers.* ;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,15 +14,20 @@ public class SectionServiceTest {
 
 	@Test
 	public void noSections() {
-		SectionService sectionService = new SectionService(Collections.<Article>emptyList()) ;
+		SectionService sectionService = new SectionService(new ArticleStore() {
+			public Collection<Article> listArticles() {
+				return Collections.emptyList() ;
+			} }) ;
 		assertThat(sectionService.listSections(), is(empty())) ;
 	}
 	
 	@Test
 	public void listAgileSection() {
-		List<Article> articles = Arrays.asList(new Article("Agile")) ;
-		
-		SectionService sectionService = new SectionService(articles) ;
+		SectionService sectionService = new SectionService(new ArticleStore() {
+
+			public Collection<Article> listArticles() {
+				return Arrays.asList(new Article("Agile")) ;
+			}} ) ;
 		
 		assertThat(sectionService.listSections(), hasItem(equalTo("Agile"))) ;
 	}

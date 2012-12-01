@@ -4,17 +4,17 @@ import java.util.Collection;
 import java.util.HashSet;
 
 public class SectionService {
-	
-	private Collection<? extends Article> articles ;
 
-	public SectionService(Collection<? extends Article> articles) {
-		this.articles = articles ;
+	private ArticleStore articleStore ;
+	
+	public SectionService(ArticleStore articleStore) {
+		this.articleStore = articleStore ;
 	}
 
 	public Collection<String> listSections() {
 		Collection<String> sections = new HashSet<String>() ;
 		
-		for (Article article : articles) {
+		for (Article article : articleStore.listArticles()) {
 			sections.add(article.getSection()) ;
 		}
 		
