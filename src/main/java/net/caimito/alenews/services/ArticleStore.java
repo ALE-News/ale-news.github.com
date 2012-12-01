@@ -6,4 +6,6 @@ public interface ArticleStore {
 
 	Collection<Article> listArticles();
 
+	void add(Article article);
+
 }
