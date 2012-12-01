@@ -1,0 +1,78 @@
+/*
+Page container
+*/
+.wrapper {
+	max-width: 1430px;
+	padding: 5px;
+	margin: 0 auto;
+}
+
+/*
+Column container
+*/
+.grids {
+	width: auto;
+	max-width: 1440px;
+	clear: both;
+	margin: 0 0 0 -0.694%;
+	list-style: none; /* So we can make grids out of lists. */
+	overflow: hidden; /* Clear the floats */
+}
+
+[class^="grid-"] {
+	float: left;
+	margin: 0 0.694% 0 0;
+}
+
+.grids [class^="grid-"] {
+	margin: 0 0 0 0.694%;
+}
+
+.grid-1 {
+	width: 7.639%
+}
+
+.grid-2 {
+	width: 15.972%
+}
+
+.grid-3 {
+	width: 24.306%
+}
+
+.grid-4 {
+	width: 32.639%
+}
+
+.grid-5 {
+	width: 40.972%
+}
+
+.grid-6 {
+	width: 49.306%
+}
+
+.grid-7 {
+	width: 57.639%
+}
+
+.grid-8 {
+	width: 65.972%
+}
+
+.grid-9 {
+	width: 74.306%
+}
+
+.grid-10 {
+	width: 82.639%
+}
+
+.grid-11 {
+	width: 90.972%
+}
+
+.grid-12 {
+	width: 99.306%;
+	margin: 0;
+}

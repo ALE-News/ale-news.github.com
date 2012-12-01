@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>${title}</title>
 </head>
 <body>
+	<div class="wrapper">
+		<div id="header" class="grids">
+			<div class="grid-11">
+				<p>ALE News</p>
+				<p>Gemeinsam suchen wir nach besseren Wegen Wissensarbeit zu organisieren und durchzuführen</p>
+			</div>
+			<div class="grid-1">
+				<img src="${context:img/ALE-logo.png}"/>
+			</div>
+		</div>
+	</div>
+
 	<t:body />
 </body>
 </html>

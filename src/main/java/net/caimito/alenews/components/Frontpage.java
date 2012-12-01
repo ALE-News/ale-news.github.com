@@ -8,7 +8,7 @@ import org.apache.tapestry5.annotations.Property;
 /**
  * Layout component for pages of application ale-news.
  */
-@Import(stylesheet = "context:css/screen.css")
+@Import(stylesheet = { "context:css/screen.css", "context:css/scaffolding.css" })
 public class Frontpage {
 	@Property
 	@Parameter(required = true, defaultPrefix = BindingConstants.LITERAL)
