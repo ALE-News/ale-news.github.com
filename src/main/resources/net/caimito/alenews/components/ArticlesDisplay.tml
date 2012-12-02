@@ -1,0 +1,9 @@
+<t:loop xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	source="articles" value="article">
+	<div>
+		<h2>
+			<a href="${article.destinationUrl}">${article.title}</a>
+		</h2>
+		<p>${article.summary}</p>
+	</div>
+</t:loop>

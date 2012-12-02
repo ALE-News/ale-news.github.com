@@ -15,11 +15,22 @@ public class InMemoryArticleStoreTest {
 	
 	@Test
 	public void oneArticle() {
-		Article article = new Article("Agile") ;
+		Article article = new Article() ;
+		article.setSection("Agile") ;
 		
 		ArticleStore articleStore = new InMemoryArticleStore() ;
 		articleStore.add(article) ;
 		assertThat(articleStore.listArticles(), hasItem(equalTo(article))) ;
 	}
-	
+
+	@Test
+	public void filterOneArticle() {
+		Article article = new Article() ;
+		article.setSection("Agile") ;
+		
+		ArticleStore articleStore = new InMemoryArticleStore() ;
+		articleStore.add(article) ;
+		assertThat(articleStore.listArticlesByTopic("Agile"), hasItem(equalTo(article))) ;
+	}
+
 }

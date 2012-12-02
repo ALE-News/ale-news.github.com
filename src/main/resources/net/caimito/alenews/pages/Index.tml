@@ -1,5 +1,10 @@
 <html t:type="frontpage" title="ale-news Index"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 
-<p>${message:greeting}</p>
+<t:loop source="topicSections" value="topicSection">
+	<p id="section_${topicSection}" class="topicSection">${topicSection}</p>
+	<t:articlesDisplay topicSection="topicSection"/>		
+</t:loop>
+
+<p><t:pageLink page="admin/article/add">Add Article</t:pageLink></p>
 </html>

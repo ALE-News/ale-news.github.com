@@ -16,7 +16,9 @@ public class SectionServiceTest {
 	@Test
 	public void listAgileSection() {
 		ArticleStore articleStore = new InMemoryArticleStore() ;
-		articleStore.add(new Article("Agile")) ;
+		Article article = new Article() ;
+		article.setSection("Agile") ;
+		articleStore.add(article) ;
 		
 		SectionService sectionService = new SectionService(articleStore) ;
 		assertThat(sectionService.listSections(), hasItem(equalTo("Agile"))) ;

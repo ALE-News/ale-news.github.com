@@ -11,7 +11,8 @@ import org.apache.tapestry5.ioc.ServiceBinder;
  */
 public class AppModule {
 	public static void bind(ServiceBinder binder) {
-		// binder.bind(MyServiceInterface.class, MyServiceImpl.class);
+		binder.bind(ArticleStore.class, InMemoryArticleStore.class) ;
+		binder.bind(SectionService.class) ;
 	}
 
 	public static void contributeFactoryDefaults(MappedConfiguration<String, Object> configuration) {
