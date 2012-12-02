@@ -1,8 +1,26 @@
 <html t:type="frontpage" title="ale-news Index"
-	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
 
 <h1>Add Article</h1>
 
-<t:beaneditform t:id="article"/>
+<t:beaneditform t:id="article" t:reorder="title, summary, destinationUrl, topic, language">
+	<p:title>
+		<t:label for="title" />
+		<t:textfield t:id="title" value="article.title" size="50" />
+	</p:title>
+	<p:summary>
+		<t:label for="summary" />
+		<t:textarea t:id="summary" value="article.summary" rows="10" cols="50" />
+	</p:summary>
+	<p:destinationUrl>
+		<t:label for="destinationUrl" />
+		<t:textfield t:id="destinationUrl" value="article.destinationUrl" size="50" />
+	</p:destinationUrl>
+	<p:language>
+		<t:label for="language"/>
+		<t:select t:id="language" model="availableLanguages" value="article.language"/>
+	</p:language>
+</t:beaneditform>
 
 </html>

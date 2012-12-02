@@ -1,12 +1,31 @@
 package net.caimito.alenews.services;
 
+import org.apache.tapestry5.beaneditor.Validate;
+
 public class Article {
 
-	private String section ;
+	@Validate("required")
+	private String topic ;
+	
+	@Validate("required")
 	private String summary ;
+	
+	@Validate("required")
 	private String destinationUrl ;
+	
+	@Validate("required")
 	private String title ;
 	
+	private String language ;
+	
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -15,12 +34,12 @@ public class Article {
 		this.title = title;
 	}
 
-	public String getSection() {
-		return section ;
+	public String getTopic() {
+		return topic ;
 	}
 	
-	public void setSection(String section) {
-		this.section = section;
+	public void setTopic(String topic) {
+		this.topic = topic;
 	}
 
 	public String getSummary() {

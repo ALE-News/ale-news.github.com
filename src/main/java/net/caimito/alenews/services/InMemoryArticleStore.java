@@ -12,7 +12,7 @@ public class InMemoryArticleStore implements ArticleStore {
 		Collection<Article> selectedArticles = new ArrayList<Article>() ;
 		
 		for (Article article : articles) {
-			if (topic.equalsIgnoreCase(article.getSection()))
+			if (topic.equalsIgnoreCase(article.getTopic()))
 				selectedArticles.add(article) ;
 		}
 		

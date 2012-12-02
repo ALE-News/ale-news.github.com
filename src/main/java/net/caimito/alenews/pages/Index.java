@@ -1,6 +1,7 @@
 package net.caimito.alenews.pages;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import net.caimito.alenews.services.SectionService;
 
@@ -17,6 +18,6 @@ public class Index {
 	private String topicSection ;
 	
 	public Collection<String> getTopicSections() {
-		return sectionService.listSections() ;
+		return sectionService.listSections(Locale.ENGLISH) ;
 	}
 }

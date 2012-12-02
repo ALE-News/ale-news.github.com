@@ -3,6 +3,10 @@ package net.caimito.alenews.services;
 import static org.junit.Assert.* ;
 import static org.hamcrest.Matchers.* ;
 
+import java.util.Locale;
+
+import net.caimito.alenews.util.ArticleFactory;
+
 import org.junit.Test;
 
 public class SectionServiceTest {
@@ -10,17 +14,26 @@ public class SectionServiceTest {
 	@Test
 	public void noSections() {
 		SectionService sectionService = new SectionService(new InMemoryArticleStore()) ;
-		assertThat(sectionService.listSections(), is(empty())) ;
+		assertThat(sectionService.listSections(Locale.ENGLISH), is(empty())) ;
 	}
 	
 	@Test
 	public void listAgileSection() {
 		ArticleStore articleStore = new InMemoryArticleStore() ;
-		Article article = new Article() ;
-		article.setSection("Agile") ;
-		articleStore.add(article) ;
+		articleStore.add(ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile")) ;
 		
 		SectionService sectionService = new SectionService(articleStore) ;
-		assertThat(sectionService.listSections(), hasItem(equalTo("Agile"))) ;
+		assertThat(sectionService.listSections(Locale.ENGLISH), hasItem(equalTo("Agile"))) ;
+	}
+
+	@Test
+	public void listAgileSectionForEnglish() {
+		ArticleStore articleStore = new InMemoryArticleStore() ;
+		articleStore.add(ArticleFactory.createArticle(Locale.GERMAN, "Titel", "Zusammenfassung", "http://localhost", "Agil")) ;
+		articleStore.add(ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile")) ;
+
+		SectionService sectionService = new SectionService(articleStore) ;
+		assertThat(sectionService.listSections(Locale.ENGLISH), hasItem(equalTo("Agile"))) ;
+		assertThat(sectionService.listSections(Locale.ENGLISH), not(hasItem(equalTo("Agil")))) ;
 	}
 }

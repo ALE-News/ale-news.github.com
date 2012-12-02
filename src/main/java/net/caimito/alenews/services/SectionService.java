@@ -2,6 +2,7 @@ package net.caimito.alenews.services;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Locale;
 
 public class SectionService {
 
@@ -11,11 +12,12 @@ public class SectionService {
 		this.articleStore = articleStore ;
 	}
 
-	public Collection<String> listSections() {
+	public Collection<String> listSections(Locale localeExpected) {
 		Collection<String> sections = new HashSet<String>() ;
 		
 		for (Article article : articleStore.listArticles()) {
-			sections.add(article.getSection()) ;
+			if (localeExpected.getISO3Language().equals(article.getLanguage()))
+				sections.add(article.getTopic()) ;
 		}
 		
 		return sections ;
