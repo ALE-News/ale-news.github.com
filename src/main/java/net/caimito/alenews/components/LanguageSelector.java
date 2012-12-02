@@ -1,8 +1,10 @@
 package net.caimito.alenews.components;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import net.caimito.alenews.pages.Index;
 
@@ -12,6 +14,14 @@ import org.apache.tapestry5.services.PersistentLocale;
 
 public class LanguageSelector {
 
+	private static Map<String, String> flagNames = new HashMap<String, String>() ;
+	
+	static {
+		flagNames.put("en", "flag_rotate-02.png") ;
+		flagNames.put("de", "flag_rotate-03.png") ;
+		flagNames.put("es", "flag_rotate-12.png") ;
+	}
+	
 	@Property
 	private String language ;
 	
@@ -29,6 +39,14 @@ public class LanguageSelector {
 		persistentLocale.set(new Locale(language)) ;
 		
 		return Index.class ;
+	}
+	
+	public int getGridFillerIndex() {
+		return 12 - getAvailableLanguages().size() ;
+	}
+	
+	public String getFlagName() {
+		return flagNames.get(language) ;
 	}
 
 }

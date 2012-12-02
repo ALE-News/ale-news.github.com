@@ -1,3 +1,10 @@
 .topicSection {
 	background-color: #F2F2F2 ;
 }
+
+DIV.article H2 {
+	font-size: 16px;
+	font-weight: bold ;
+	color: #AB1413;
+	line-height: 20px;
+}

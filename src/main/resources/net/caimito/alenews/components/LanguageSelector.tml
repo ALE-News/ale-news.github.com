@@ -1,5 +1,10 @@
-<div id="languageSelection" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+<div id="languageSelection" class="grids" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<div class="grid-${gridFillerIndex}">
+		&nbsp;
+	</div>
 	<t:loop source="availableLanguages" value="language">
-		<t:actionLink t:id="selectLanguage" context="language">${language}</t:actionLink> | 
+		<div class="grid-1">
+			<t:actionLink t:id="selectLanguage" context="language"><img src="${context:img/language-flags/64x64/}/${flagName}"/></t:actionLink>
+		</div> 
 	</t:loop>
 </div>

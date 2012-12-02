@@ -1,6 +1,7 @@
 package net.caimito.alenews.components;
 
 import java.util.Collection;
+import java.util.Locale;
 
 import net.caimito.alenews.services.Article;
 import net.caimito.alenews.services.ArticleStore;
@@ -8,7 +9,6 @@ import net.caimito.alenews.services.ArticleStore;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.services.PersistentLocale;
 
 public class ArticlesDisplay {
 
@@ -22,9 +22,10 @@ public class ArticlesDisplay {
 	private ArticleStore articleStore ;
 	
 	@Inject
-	private PersistentLocale persistentLocale ;
+	private Locale currentLocale ;
 	
 	public Collection<Article> getArticles() {
-		return articleStore.listArticlesByTopic(persistentLocale.get(), topicSection) ;
+		return articleStore.listArticlesByTopic(currentLocale, topicSection) ;
 	}
+	
 }
