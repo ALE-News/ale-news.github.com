@@ -15,9 +15,8 @@ public class SectionService {
 	public Collection<String> listSections(Locale localeExpected) {
 		Collection<String> sections = new HashSet<String>() ;
 		
-		for (Article article : articleStore.listArticles()) {
-			if (localeExpected.getISO3Language().equals(article.getLanguage()))
-				sections.add(article.getTopic()) ;
+		for (Article article : articleStore.listArticles(localeExpected)) {
+			sections.add(article.getTopic()) ;
 		}
 		
 		return sections ;

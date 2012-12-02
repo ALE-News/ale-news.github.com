@@ -1,12 +1,12 @@
 package net.caimito.alenews.pages;
 
 import java.util.Collection;
-import java.util.Locale;
 
 import net.caimito.alenews.services.SectionService;
 
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.PersistentLocale;
 
 
 public class Index {
@@ -17,7 +17,20 @@ public class Index {
 	@Property
 	private String topicSection ;
 	
+	@Inject
+	private PersistentLocale persistentLocale ;
+	
+	private String language ;
+	
+	public String onPassivate() {
+		return language ;
+	}
+	
+	public void onActivate(String language) {
+		this.language = language ;
+	}
+	
 	public Collection<String> getTopicSections() {
-		return sectionService.listSections(Locale.ENGLISH) ;
+		return sectionService.listSections(persistentLocale.get()) ;
 	}
 }

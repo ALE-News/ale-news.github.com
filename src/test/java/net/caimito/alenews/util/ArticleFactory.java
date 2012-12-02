@@ -9,7 +9,7 @@ public class ArticleFactory {
 	public static Article createArticle(Locale locale, String title, String summary, String destinationUrl, String topic) {
 		Article article = new Article() ;
 		article.setDestinationUrl(destinationUrl) ;
-		article.setLanguage(locale.getISO3Language()) ;
+		article.setLanguage(locale.getLanguage()) ;
 		article.setTopic(topic) ;
 		article.setSummary(summary) ;
 		article.setTitle(title) ;

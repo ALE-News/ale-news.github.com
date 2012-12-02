@@ -14,24 +14,33 @@ public class InMemoryArticleStoreTest {
 	@Test
 	public void emptyArticleList() {
 		ArticleStore articleStore = new InMemoryArticleStore() ;
-		assertThat(articleStore.listArticles(), is(empty())) ;
+		assertThat(articleStore.listArticles(Locale.ENGLISH), is(empty())) ;
 	}
 	
 	@Test
-	public void oneArticle() {
+	public void oneArticleEnglish() {
 		ArticleStore articleStore = new InMemoryArticleStore() ;
 		Article article = ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile") ;
 		articleStore.add(article) ;
-		assertThat(articleStore.listArticles(), hasItem(equalTo(article))) ;
+
+		Article articleGerman = ArticleFactory.createArticle(Locale.GERMAN, "Title", "Zusammenfassung", "http://localhost", "Agil") ;
+		articleStore.add(articleGerman) ;
+
+		assertThat(articleStore.listArticles(Locale.ENGLISH), hasItem(equalTo(article))) ;
+		assertThat(articleStore.listArticles(Locale.ENGLISH), not(hasItem(equalTo(articleGerman)))) ;
 	}
 
 	@Test
-	public void filterOneArticle() {
+	public void filterOneArticleEnglish() {
 		Article article = ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile") ;
+		Article articleGerman = ArticleFactory.createArticle(Locale.GERMAN, "Title", "Zusammenfassung", "http://localhost", "Agil") ;
 		
 		ArticleStore articleStore = new InMemoryArticleStore() ;
 		articleStore.add(article) ;
-		assertThat(articleStore.listArticlesByTopic("Agile"), hasItem(equalTo(article))) ;
+		articleStore.add(articleGerman) ;
+
+		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile"), hasItem(equalTo(article))) ;
+		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile"), not(hasItem(equalTo(articleGerman)))) ;
 	}
 
 }

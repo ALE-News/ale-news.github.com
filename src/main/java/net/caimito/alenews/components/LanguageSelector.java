@@ -1,23 +1,22 @@
-package net.caimito.alenews.pages.admin.article;
+package net.caimito.alenews.components;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import net.caimito.alenews.pages.Index;
-import net.caimito.alenews.services.Article;
-import net.caimito.alenews.services.ArticleStore;
 
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.PersistentLocale;
 
-public class Add {
+public class LanguageSelector {
 
 	@Property
-	private Article article ;
+	private String language ;
 	
 	@Inject
-	private ArticleStore articleStore ;
+	private PersistentLocale persistentLocale ;
 	
 	public List<String> getAvailableLanguages() {
 		List<String> languages = new ArrayList<String>() ;
@@ -26,8 +25,10 @@ public class Add {
 		return languages ;
 	}
 	
-	public Object onSuccess() {
-		articleStore.add(article) ;
+	public Object onActionFromSelectLanguage(String language) {
+		persistentLocale.set(new Locale(language)) ;
+		
 		return Index.class ;
 	}
+
 }

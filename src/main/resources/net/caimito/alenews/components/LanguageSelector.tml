@@ -1,0 +1,5 @@
+<div id="languageSelection" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<t:loop source="availableLanguages" value="language">
+		<t:actionLink t:id="selectLanguage" context="language">${language}</t:actionLink> | 
+	</t:loop>
+</div>

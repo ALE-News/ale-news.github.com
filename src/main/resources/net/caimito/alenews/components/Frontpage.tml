@@ -20,5 +20,7 @@
 	</div>
 
 	<t:body />
+
+	<t:languageSelector/>	
 </body>
 </html>
