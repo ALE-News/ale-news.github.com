@@ -65,6 +65,12 @@
         	<version>1.3</version>
         	<scope>test</scope>
         </dependency>
+        <dependency>
+        	<groupId>org.yaml</groupId>
+        	<artifactId>snakeyaml</artifactId>
+        	<version>1.11</version>
+        	<type>jar</type>
+        </dependency>
         </dependencies>
     <build>
         <finalName>ale-news</finalName>
