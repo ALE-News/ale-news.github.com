@@ -11,7 +11,8 @@ import org.apache.tapestry5.ioc.ServiceBinder;
  */
 public class AppModule {
 	public static void bind(ServiceBinder binder) {
-		binder.bind(ArticleStore.class, InMemoryArticleStore.class) ;
+//		binder.bind(ArticleStore.class, InMemoryArticleStore.class) ;
+		binder.bind(ArticleStore.class, FileArticleStore.class) ;
 		binder.bind(SectionService.class) ;
 	}
 

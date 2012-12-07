@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.* ;
 
 import java.util.Locale;
 
+import net.caimito.alenews.util.ArticleFactory;
+
 import org.junit.Test;
 
 public class FileArticleStoreTest {
@@ -49,6 +51,19 @@ public class FileArticleStoreTest {
 		assertThat(articleStore.listArticles(Locale.ENGLISH), hasItem(englishArticle)) ;
 		assertThat(articleStore.listArticles(Locale.ENGLISH), not(hasItem(germanArticle))) ;
 		assertThat(articleStore.listArticles(Locale.ENGLISH).size(), is(1)) ;
+	}
+
+	@Test
+	public void filterOneArticleEnglish() {
+		Article article = ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile") ;
+		Article articleGerman = ArticleFactory.createArticle(Locale.GERMAN, "Title", "Zusammenfassung", "http://localhost", "Agil") ;
+		
+		ArticleStore articleStore = new FileArticleStore() ;
+		articleStore.add(article) ;
+		articleStore.add(articleGerman) ;
+
+		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile"), hasItem(equalTo(article))) ;
+		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile"), not(hasItem(equalTo(articleGerman)))) ;
 	}
 
 }

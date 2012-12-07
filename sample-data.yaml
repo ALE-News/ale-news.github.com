@@ -1,0 +1,40 @@
+!!set
+? !!net.caimito.alenews.services.Article {destinationUrl: 'http://www.stephan-schwab.com/2011/05/30/building-a-walking-skeleton-with-the-help-of-cucumber-scenarios.html',
+  language: en, summary: This is the second part of a mini-series about the use of a walking skeleton in Acceptance Test Driven Development. In this installment I want to show how a team can get started with the walking skeleton and what to expect.,
+  title: Building a walking skeleton with the help of Cucumber scenarios, topic: ATDD}
+: null
+? !!net.caimito.alenews.services.Article {destinationUrl: 'http://www.stephan-schwab.com/2011/03/15/how-to-deal-with-sending-email-in-acceptance-test-driven-development-with-cucumber.html',
+  language: en, summary: At times one needs to think a bit harder about how to test something when it goes beyond interacting with web pages or other types of user interfaces. That is usually the case when one system interacts with another. I would like to share one such case and explain my solution to the problem.,
+  title: How to deal with sending email in Acceptance Test Driven Development with Cucumber,
+  topic: ATDD}
+: null
+? !!net.caimito.alenews.services.Article
+  destinationUrl: http://www.stephan-schwab.com/2011/03/19/acceptance-test-driven-development-changes-how-you-organize-your-project.html
+  language: en
+  summary: "Anyone who sets out to develop software does so with a specific motivation.\
+    \ Common motivations are to reduce the cost of some business process, to increase\
+    \ revenue by being able to serve more customers or to create something to sell\
+    \ in the case where the software itself is the product.\r\n\r\nSoftware development\
+    \ is expensive and it takes quite some time to create something meaningful. Some\
+    \ people see how fast you can use software to solve a problem, but rarely have\
+    \ an opportunity to see what it takes to build that software in the first place.\
+    \ That frequently leads to wrong expectations."
+  title: Acceptance Test Driven Development changes how you organize your project
+  topic: ATDD
+: null
+? !!net.caimito.alenews.services.Article {destinationUrl: 'http://www.stephan-schwab.com/2011/06/23/how-to-work-with-atdd-and-micro-tests-in-different-testing-environments.html',
+  language: en, summary: A software development team has many different tools they can use. A good craftsman knows when to use one tool and not another and why. It is experience that lets him make the right choices. The differences between the tools may be very small and they may all seem to be very similar but to the experienced craftsman the purpose of each tool is very clear and he does not use them just so.,
+  title: How to work with ATDD and micro-tests in different testing environments,
+  topic: ATDD}
+: null
+? !!net.caimito.alenews.services.Article {destinationUrl: 'http://www.stephan-schwab.com/2011/03/21/validation-rules-for-form-input-in-acceptance-test-driven-development.html',
+  language: en, summary: 'A lot of business applications present forms to the user
+    and there is always the need to validate user input into these forms. Should we
+    test validation of form input in a Cucumber feature when practicing Acceptance
+    Test Driven Development?', title: Validation rules for form input in Acceptance Test Driven Development,
+  topic: ATDD}
+: null
+? !!net.caimito.alenews.services.Article {destinationUrl: 'http://www.stephan-schwab.com/2011/05/23/use-of-a-walking-skeleton-in-acceptance-test-driven-development.html',
+  language: en, summary: One of the main benefits of Acceptance Test Driven Development is that you have your customer involved and can share executable specifications written in human language with all team members including the customer. That is a major point in favor of ATDD.,
+  title: Use of a Walking Skeleton in Acceptance Test Driven Development, topic: ATDD}
+: null
