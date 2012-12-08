@@ -1,11 +1,12 @@
-<div class="grids"
-	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
-	<t:loop source="articles" value="article">
-		<div class="grid-4 article">
-			<h2>
-				<a href="${article.destinationUrl}">${article.title}</a>
-			</h2>
-			<p>${article.summary}</p>
-		</div>
-	</t:loop>
-</div>
+<t:loop source="articles" value="articleRow" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<div class="grids">
+		<t:loop source="articleRow" value="article">
+			<div class="grid-4 article">
+				<h2>
+					<a href="${article.destinationUrl}">${article.title}</a>
+				</h2>
+				<p>${article.summary}</p>
+			</div>
+		</t:loop>
+	</div>
+</t:loop>

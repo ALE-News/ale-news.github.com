@@ -2,9 +2,10 @@
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 
 <t:loop source="topicSections" value="topicSection">
-	<p id="section_${topicSection}" class="topicSection">${topicSection}</p>
-	<t:articlesDisplay topicSection="topicSection"/>		
+	<t:pagelink page="topic" context="topicSection"><p id="section_${topicSection}" class="topicSection">${topicSection}</p></t:pagelink>
+	<t:articlesDisplay topicSection="topicSection" numberOfArticles="3" articlesPerRow="3"/>		
 </t:loop>
 
+<hr/>
 <p><t:pageLink page="admin/article/add">Add Article</t:pageLink></p>
 </html>

@@ -1,0 +1,11 @@
+<html t:type="frontpage" title="${topic}"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+
+<h1>${topic}</h1>
+
+<t:articlesDisplay topicSection="topic" articlesPerRow="3"/>
+
+<hr/>
+<p><t:pageLink page="admin/article/add">Add Article</t:pageLink></p>
+
+</html>

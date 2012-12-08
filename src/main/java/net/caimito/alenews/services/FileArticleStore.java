@@ -5,9 +5,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 import org.yaml.snakeyaml.Yaml;
 
@@ -30,9 +33,9 @@ public class FileArticleStore implements ArticleStore {
 		}
 	}
 
-	public Collection<Article> listArticles(Locale locale, int limitNumberOfArticles) {
-		Collection<Article> loadedArticles = loadYaml();
-		Collection<Article> articles = new HashSet<Article>();
+	public List<Article> listArticles(Locale locale, int limitNumberOfArticles) {
+		List<Article> loadedArticles = loadYaml();
+		List<Article> articles = new ArrayList<Article>();
 
 		for (Article article : loadedArticles) {
 			if (article.getLanguage().equals(locale.getLanguage())) {
@@ -45,8 +48,8 @@ public class FileArticleStore implements ArticleStore {
 		return articles;
 	}
 
-	private Collection<Article> loadYaml() {
-		Collection<Article> articles = new HashSet<Article>();
+	private List<Article> loadYaml() {
+		Set<Article> articles = new HashSet<Article>();
 		Yaml yaml = new Yaml();
 
 		try {
@@ -58,17 +61,17 @@ public class FileArticleStore implements ArticleStore {
 				}
 			}
 		} catch (FileNotFoundException e) {
-			return articles;
+			return new ArrayList<Article>(articles);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 
-		return articles;
+		return new ArrayList<Article>(articles);
 	}
 
-	public Collection<Article> listArticlesByTopic(Locale locale, String topic, int limitNumberOfArticles) {
-		Collection<Article> allArticles = listArticles(locale, limitNumberOfArticles);
-		Collection<Article> articles = new HashSet<Article>();
+	public List<Article> listArticlesByTopic(Locale locale, String topic, int limitNumberOfArticles) {
+		List<Article> allArticles = listArticles(locale, limitNumberOfArticles);
+		List<Article> articles = new ArrayList<Article>();
 
 		for (Article article : allArticles) {
 			if (article.getTopic().equals(topic))
