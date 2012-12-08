@@ -11,9 +11,11 @@ import org.apache.tapestry5.ioc.ServiceBinder;
  */
 public class AppModule {
 	public static void bind(ServiceBinder binder) {
-//		binder.bind(ArticleStore.class, InMemoryArticleStore.class) ;
-		binder.bind(ArticleStore.class, FileArticleStore.class) ;
 		binder.bind(SectionService.class) ;
+	}
+	
+	public static ArticleStore buildArticleStore() {
+		return new FileArticleStore("/tmp/articles.yaml") ;
 	}
 
 	public static void contributeFactoryDefaults(MappedConfiguration<String, Object> configuration) {

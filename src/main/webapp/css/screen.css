@@ -1,10 +1,18 @@
+A {
+	color: #AB1413 ;
+	text-decoration: none ;
+}
+
 .topicSection {
 	background-color: #F2F2F2 ;
 }
 
 DIV.article H2 {
+	margin-top: 0px ;
+	margin-bottom: -15px ;
 	font-size: 16px;
 	font-weight: bold ;
 	color: #AB1413;
 	line-height: 20px;
 }
+

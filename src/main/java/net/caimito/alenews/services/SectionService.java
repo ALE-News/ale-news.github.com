@@ -15,7 +15,7 @@ public class SectionService {
 	public Collection<String> listSections(Locale localeExpected) {
 		Collection<String> sections = new HashSet<String>() ;
 		
-		for (Article article : articleStore.listArticles(localeExpected)) {
+		for (Article article : articleStore.listArticles(localeExpected, ArticleStore.NO_LIMIT)) {
 			sections.add(article.getTopic()) ;
 		}
 		

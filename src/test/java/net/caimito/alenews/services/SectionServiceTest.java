@@ -13,13 +13,13 @@ public class SectionServiceTest {
 
 	@Test
 	public void noSections() {
-		SectionService sectionService = new SectionService(new InMemoryArticleStore()) ;
+		SectionService sectionService = new SectionService(new FileArticleStore()) ;
 		assertThat(sectionService.listSections(Locale.ENGLISH), is(empty())) ;
 	}
 	
 	@Test
 	public void listAgileSection() {
-		ArticleStore articleStore = new InMemoryArticleStore() ;
+		ArticleStore articleStore = new FileArticleStore() ;
 		articleStore.add(ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile")) ;
 		
 		SectionService sectionService = new SectionService(articleStore) ;
@@ -28,7 +28,7 @@ public class SectionServiceTest {
 
 	@Test
 	public void listAgileSectionForEnglish() {
-		ArticleStore articleStore = new InMemoryArticleStore() ;
+		ArticleStore articleStore = new FileArticleStore() ;
 		articleStore.add(ArticleFactory.createArticle(Locale.GERMAN, "Titel", "Zusammenfassung", "http://localhost", "Agil")) ;
 		articleStore.add(ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile")) ;
 

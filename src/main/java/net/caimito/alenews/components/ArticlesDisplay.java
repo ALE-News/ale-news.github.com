@@ -25,7 +25,7 @@ public class ArticlesDisplay {
 	private Locale currentLocale ;
 	
 	public Collection<Article> getArticles() {
-		return articleStore.listArticlesByTopic(currentLocale, topicSection) ;
+		return articleStore.listArticlesByTopic(currentLocale, topicSection, 3) ;
 	}
 	
 }

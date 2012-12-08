@@ -24,7 +24,7 @@ public class FileArticleStoreTest {
 		ArticleStore articleStore = new FileArticleStore() ;
 		
 		articleStore.add(article) ;
-		assertThat(articleStore.listArticles(locale), hasItem(article)) ;
+		assertThat(articleStore.listArticles(locale, ArticleStore.NO_LIMIT), hasItem(article)) ;
 	}
 
 
@@ -48,9 +48,9 @@ public class FileArticleStoreTest {
 		germanArticle.setTopic("Agile") ;
 		articleStore.add(germanArticle) ;
 		
-		assertThat(articleStore.listArticles(Locale.ENGLISH), hasItem(englishArticle)) ;
-		assertThat(articleStore.listArticles(Locale.ENGLISH), not(hasItem(germanArticle))) ;
-		assertThat(articleStore.listArticles(Locale.ENGLISH).size(), is(1)) ;
+		assertThat(articleStore.listArticles(Locale.ENGLISH, ArticleStore.NO_LIMIT), hasItem(englishArticle)) ;
+		assertThat(articleStore.listArticles(Locale.ENGLISH, ArticleStore.NO_LIMIT), not(hasItem(germanArticle))) ;
+		assertThat(articleStore.listArticles(Locale.ENGLISH, ArticleStore.NO_LIMIT).size(), is(1)) ;
 	}
 
 	@Test
@@ -62,8 +62,20 @@ public class FileArticleStoreTest {
 		articleStore.add(article) ;
 		articleStore.add(articleGerman) ;
 
-		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile"), hasItem(equalTo(article))) ;
-		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile"), not(hasItem(equalTo(articleGerman)))) ;
+		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile", ArticleStore.NO_LIMIT), hasItem(equalTo(article))) ;
+		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile", ArticleStore.NO_LIMIT), not(hasItem(equalTo(articleGerman)))) ;
+	}
+	
+	@Test
+	public void limitNumberOfArticles() {
+		Article article1 = ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile") ;
+		Article article2 = ArticleFactory.createArticle(Locale.ENGLISH, "Second Title", "Second Summary", "http://localhost", "Agile") ;
+		
+		ArticleStore articleStore = new FileArticleStore() ;
+		articleStore.add(article1) ;
+		articleStore.add(article2) ;
+		
+		assertThat(articleStore.listArticles(Locale.ENGLISH, 1).size(), is(1)) ;
 	}
 
 }
