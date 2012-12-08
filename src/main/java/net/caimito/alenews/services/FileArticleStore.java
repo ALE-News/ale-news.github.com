@@ -70,12 +70,14 @@ public class FileArticleStore implements ArticleStore {
 	}
 
 	public List<Article> listArticlesByTopic(Locale locale, String topic, int limitNumberOfArticles) {
-		List<Article> allArticles = listArticles(locale, limitNumberOfArticles);
+		List<Article> loadedArticles = loadYaml();
 		List<Article> articles = new ArrayList<Article>();
 
-		for (Article article : allArticles) {
-			if (article.getTopic().equals(topic))
+		for (Article article : loadedArticles) {
+			if (article.getTopic().equals(topic) && article.getLanguage().equals(locale.getLanguage()))
 				articles.add(article);
+			if (articles.size() == limitNumberOfArticles)
+				break ;
 		}
 
 		return articles;

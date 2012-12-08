@@ -10,8 +10,8 @@
 	<div class="wrapper">
 		<div id="header" class="grids">
 			<div class="grid-11">
-				<p>ALE News</p>
-				<p>Gemeinsam suchen wir nach besseren Wegen Wissensarbeit zu organisieren und durchzuführen</p>
+				<h1><t:pagelink page="index">ALE News</t:pagelink></h1>
+				<p>${message:tagline}</p>
 			</div>
 			<div class="grid-1">
 				<img src="${context:img/ALE-logo.png}"/>

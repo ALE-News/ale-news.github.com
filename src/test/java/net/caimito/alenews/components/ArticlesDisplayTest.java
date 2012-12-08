@@ -30,9 +30,56 @@ public class ArticlesDisplayTest {
 		
 		List<List<Article>> articleCollections = grouper.group(articles, 3) ;
 		
-		assertThat(articleCollections.size(), is(2)) ;
+		assertThat(articleCollections.size(), is(3)) ;
 		assertThat(articleCollections.get(0).size(), is(3)) ;
 		assertThat(articleCollections.get(1).size(), is(3)) ;
+		assertThat(articleCollections.get(2).size(), is(1)) ;
 	}
-	
+
+	@Test
+	public void justTwoArticles() {
+		List<Article> articles = new ArrayList<Article>() ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 1", "Summary 1", "http://localhost", "Agile")) ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 2", "Summary 2", "http://localhost", "Agile")) ;
+		
+		ArticleCollectionGrouper grouper = new ArticleCollectionGrouper() ;
+		
+		List<List<Article>> articleCollections = grouper.group(articles, 3) ;
+		
+		assertThat(articleCollections.size(), is(1)) ;
+		assertThat(articleCollections.get(0).size(), is(2)) ;
+	}
+
+	@Test
+	public void threeArticles() {
+		List<Article> articles = new ArrayList<Article>() ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 1", "Summary 1", "http://localhost", "Agile")) ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 2", "Summary 2", "http://localhost", "Agile")) ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 3", "Summary 3", "http://localhost", "Agile")) ;
+		
+		ArticleCollectionGrouper grouper = new ArticleCollectionGrouper() ;
+		
+		List<List<Article>> articleCollections = grouper.group(articles, 3) ;
+		
+		assertThat(articleCollections.size(), is(1)) ;
+		assertThat(articleCollections.get(0).size(), is(3)) ;
+	}
+
+	@Test
+	public void fourArticles() {
+		List<Article> articles = new ArrayList<Article>() ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 1", "Summary 1", "http://localhost", "Agile")) ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 2", "Summary 2", "http://localhost", "Agile")) ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 3", "Summary 3", "http://localhost", "Agile")) ;
+		articles.add(ArticleFactory.createArticle(Locale.ENGLISH, "Article 4", "Summary 4", "http://localhost", "Agile")) ;
+		
+		ArticleCollectionGrouper grouper = new ArticleCollectionGrouper() ;
+		
+		List<List<Article>> articleCollections = grouper.group(articles, 3) ;
+		
+		assertThat(articleCollections.size(), is(2)) ;
+		assertThat(articleCollections.get(0).size(), is(3)) ;
+		assertThat(articleCollections.get(1).size(), is(1)) ;
+	}
+
 }

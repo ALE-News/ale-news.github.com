@@ -17,6 +17,11 @@ public class ArticleCollectionGrouper {
 			}
 		}
 		
+		if (articles.size() < groupSize)
+			collectionOfGroups.add(group) ;
+		else if (!group.isEmpty())
+			collectionOfGroups.add(group) ;
+		
 		return collectionOfGroups ;
 	}
 

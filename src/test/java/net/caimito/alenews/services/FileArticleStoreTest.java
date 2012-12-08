@@ -78,4 +78,20 @@ public class FileArticleStoreTest {
 		assertThat(articleStore.listArticles(Locale.ENGLISH, 1).size(), is(1)) ;
 	}
 
+	@Test
+	public void limitNumberOfArticlesByTopic() {
+		Article article1 = ArticleFactory.createArticle(Locale.ENGLISH, "Title", "Summary", "http://localhost", "Agile") ;
+		Article article2 = ArticleFactory.createArticle(Locale.ENGLISH, "Second Title", "Second Summary", "http://localhost", "ATDD") ;
+		Article article3 = ArticleFactory.createArticle(Locale.ENGLISH, "Third Title", "Second Summary", "http://localhost", "Agile") ;
+		Article article4 = ArticleFactory.createArticle(Locale.ENGLISH, "Forth Title", "Second Summary", "http://localhost", "ATDD") ;
+		
+		ArticleStore articleStore = new FileArticleStore() ;
+		articleStore.add(article1) ;
+		articleStore.add(article2) ;
+		articleStore.add(article3) ;
+		articleStore.add(article4) ;
+		
+		assertThat(articleStore.listArticlesByTopic(Locale.ENGLISH, "Agile", 1).size(), is(1)) ;
+	}
+
 }
