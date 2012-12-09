@@ -12,10 +12,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 
 public class FileArticleStore implements ArticleStore {
-
+	private static Logger LOGGER = LoggerFactory.getLogger(FileArticleStore.class) ;
+	
 	private File articleFile;
 
 	public FileArticleStore(final String fileName) {
@@ -45,6 +48,11 @@ public class FileArticleStore implements ArticleStore {
 			}
 		}
 
+		if (limitNumberOfArticles == ArticleStore.NO_LIMIT)
+			LOGGER.info("METRIC: Listing {} articles for language {}. No limit of articles set.", articles.size(), locale.getLanguage()) ;
+		else
+			LOGGER.info("METRIC: Listing {} articles for language {}. Limit for articles is {}", articles.size(), locale.getLanguage(), limitNumberOfArticles) ;
+		
 		return articles;
 	}
 
@@ -66,6 +74,7 @@ public class FileArticleStore implements ArticleStore {
 			throw new RuntimeException(e);
 		}
 
+		LOGGER.info("METRIC: Loaded {} total articles", articles.size()) ;
 		return new ArrayList<Article>(articles);
 	}
 
@@ -79,6 +88,11 @@ public class FileArticleStore implements ArticleStore {
 			if (articles.size() == limitNumberOfArticles)
 				break ;
 		}
+
+		if (limitNumberOfArticles == ArticleStore.NO_LIMIT)
+			LOGGER.info("METRIC: Listing {} articles for language {} and topic {}. No limit of articles set.", articles.size(), locale.getLanguage(), topic) ;
+		else
+			LOGGER.info("METRIC: Listing {} articles for language {} and topic {}. Limit for articles is {}", articles.size(), locale.getLanguage(), topic, limitNumberOfArticles) ;
 
 		return articles;
 	}
