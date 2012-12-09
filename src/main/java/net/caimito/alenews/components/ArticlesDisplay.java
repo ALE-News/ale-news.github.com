@@ -11,8 +11,12 @@ import net.caimito.alenews.services.ArticleStore;
 import org.apache.tapestry5.annotations.Parameter;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.ioc.annotations.Inject;
+import org.apache.tapestry5.services.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ArticlesDisplay {
+	private static Logger LOGGER = LoggerFactory.getLogger(ArticlesDisplay.class) ;
 
 	@Parameter
 	private String topicSection ;
@@ -35,6 +39,9 @@ public class ArticlesDisplay {
 	@Inject
 	private Locale currentLocale ;
 	
+	@Inject
+	private Response response ;
+	
 	public List<List<Article>> getArticles() {
 		ArticleCollectionGrouper grouper = new ArticleCollectionGrouper() ;
 		
@@ -44,4 +51,14 @@ public class ArticlesDisplay {
 		return grouper.group(articleStore.listArticlesByTopic(currentLocale, topicSection, numberOfArticles), articlesPerRow) ;
 	}
 	
+	public Object onActionFromGotoArticle(String url) {
+		try {
+			LOGGER.info("METRIC: Sending visitor to {}", url) ;
+			response.sendRedirect(url) ;
+			return null ;
+		} catch (Exception e) {
+			LOGGER.error("Redirect to article URL failed", e) ;
+			return null ;
+		}
+	}
 }

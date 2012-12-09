@@ -3,7 +3,7 @@
 		<t:loop source="articleRow" value="article">
 			<div class="grid-4 article">
 				<h2>
-					<a href="${article.destinationUrl}">${article.title}</a>
+					<t:actionLink t:id="gotoArticle" context="${article.destinationUrl}">${article.title}</t:actionLink>
 				</h2>
 				<p>${article.summary}</p>
 			</div>
