@@ -19,11 +19,19 @@ public class Add {
 	@Inject
 	private ArticleStore articleStore ;
 	
+	@Inject
+	private Locale currentLocale ;
+	
 	public List<String> getAvailableLanguages() {
 		List<String> languages = new ArrayList<String>() ;
 		languages.add(Locale.ENGLISH.getLanguage()) ;
 		languages.add(Locale.GERMAN.getLanguage()) ;
 		return languages ;
+	}
+	
+	public void onPrepare() {
+		article = new Article() ;
+		article.setLanguage(currentLocale.getLanguage()) ;
 	}
 	
 	public Object onSuccess() {

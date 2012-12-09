@@ -6,6 +6,7 @@
 					<t:actionLink t:id="gotoArticle" context="${article.destinationUrl}">${article.title}</t:actionLink>
 				</h2>
 				<p>${article.summary}</p>
+				<p class="tagline">${message:from}: ${article.author} ${message:published}: ${article.datePublished} ${message:included}: ${article.dateIncluded}</p>
 			</div>
 		</t:loop>
 	</div>

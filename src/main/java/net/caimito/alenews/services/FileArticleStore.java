@@ -1,12 +1,17 @@
 package net.caimito.alenews.services;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -99,11 +104,12 @@ public class FileArticleStore implements ArticleStore {
 
 	public void add(Article article) {
 		Collection<Article> existingArticles = loadYaml();
+		article.setDateIncluded(new Date()) ;
 		existingArticles.add(article);
 
 		Yaml yaml = new Yaml();
 		try {
-			FileWriter writer = new FileWriter(articleFile);
+			Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(articleFile), "UTF-8"));
 			writer.write(yaml.dump(existingArticles));
 			writer.close();
 		} catch (Exception e) {

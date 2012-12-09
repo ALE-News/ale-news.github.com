@@ -16,3 +16,7 @@ DIV.article H2 {
 	line-height: 20px;
 }
 
+DIV.article .tagline {
+	font-size: 12px ;
+	margin-top: -12px
+}

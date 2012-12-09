@@ -4,7 +4,11 @@
 
 <h1>Add Article</h1>
 
-<t:beaneditform t:id="article" t:reorder="title, summary, destinationUrl, topic, language">
+<t:beaneditform t:id="article" t:reorder="author, datePublished, title, summary, destinationUrl, topic, language">
+	<p:author>
+		<t:label for="author" />
+		<t:textfield t:id="author" value="article.author" size="50" />
+	</p:author>
 	<p:title>
 		<t:label for="title" />
 		<t:textfield t:id="title" value="article.title" size="50" />
