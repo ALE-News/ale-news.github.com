@@ -1,8 +1,11 @@
 package net.caimito.alenews.services;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.ioc.MappedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This module is automatically included as part of the Tapestry IoC Registry,
@@ -10,13 +13,19 @@ import org.apache.tapestry5.ioc.ServiceBinder;
  * service definitions.
  */
 public class AppModule {
+	private static Logger LOGGER = LoggerFactory.getLogger(AppModule.class) ;
+	
 	public static void bind(ServiceBinder binder) {
 		binder.bind(SectionService.class) ;
 	}
 	
 	public static ArticleStore buildArticleStore() {
-		String userDir = System.getProperty("user.dir", "/tmp") ;
-		return new FileArticleStore(userDir + "/articles.yaml") ;
+		String aleNewsDir = System.getenv("ALE_NEWS_HOME") ;
+		if (StringUtils.isEmpty(aleNewsDir)) {
+			LOGGER.warn("ALE_NEWS_HOME not set. Using /tmp for articles files") ;
+			return new FileArticleStore("/tmp/articles.yaml") ;
+		} else
+			return new FileArticleStore(aleNewsDir + "/articles.yaml") ;
 	}
 
 	public static void contributeFactoryDefaults(MappedConfiguration<String, Object> configuration) {
