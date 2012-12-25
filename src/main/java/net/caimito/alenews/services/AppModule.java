@@ -15,7 +15,8 @@ public class AppModule {
 	}
 	
 	public static ArticleStore buildArticleStore() {
-		return new FileArticleStore("/tmp/articles.yaml") ;
+		String userDir = System.getProperty("user.dir", "/tmp") ;
+		return new FileArticleStore(userDir + "/articles.yaml") ;
 	}
 
 	public static void contributeFactoryDefaults(MappedConfiguration<String, Object> configuration) {
