@@ -17,6 +17,7 @@ public class AppModule {
 	
 	public static void bind(ServiceBinder binder) {
 		binder.bind(SectionService.class) ;
+		binder.bind(ApplicationPropertiesService.class) ;
 	}
 	
 	public static ArticleStore buildArticleStore() {
@@ -35,5 +36,5 @@ public class AppModule {
 	public static void contributeApplicationDefaults(MappedConfiguration<String, Object> configuration) {
 		configuration.add(SymbolConstants.SUPPORTED_LOCALES, "en,es,de");
 	}
-
+	
 }

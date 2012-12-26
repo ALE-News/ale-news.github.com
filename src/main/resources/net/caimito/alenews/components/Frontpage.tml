@@ -20,6 +20,8 @@
 		</div>
 		<t:body />
 		<t:languageSelector />
+		<p>${message:alenetwork} <a href="http://alenetwork.eu">ALE Network</a></p>
+		<p class="appVersion">Version: ${currentVersion}</p>
 	</div>
 
 </body>
