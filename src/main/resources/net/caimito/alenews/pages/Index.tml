@@ -7,5 +7,5 @@
 </t:loop>
 
 <hr/>
-<p><t:pageLink page="admin/article/add">Add Article</t:pageLink> ${message:helpwanted}</p>
+<p><t:pageLink page="admin/article/add">${message:addArticle}</t:pageLink> ${message:helpwanted}</p>
 </html>

@@ -32,6 +32,7 @@ public class LanguageSelector {
 		List<String> languages = new ArrayList<String>() ;
 		languages.add(Locale.ENGLISH.getLanguage()) ;
 		languages.add(Locale.GERMAN.getLanguage()) ;
+		languages.add("es") ;
 		return languages ;
 	}
 	
