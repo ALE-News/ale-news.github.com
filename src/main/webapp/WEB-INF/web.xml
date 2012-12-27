@@ -37,6 +37,8 @@
 		<web-resource-collection>
 			<web-resource-name>AddNews</web-resource-name>
 			<url-pattern>/admin/*</url-pattern>
+			<url-pattern>/en/admin/*</url-pattern>
+			<url-pattern>/de/admin/*</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 		</web-resource-collection>
