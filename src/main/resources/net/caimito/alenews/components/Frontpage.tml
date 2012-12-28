@@ -24,6 +24,7 @@
 				<h1>
 					<t:pagelink page="index">ALE News</t:pagelink>
 				</h1>
+				<p class="header"><t:languageSelector /></p>
 				<p class="header">${message:tagline}</p>
 				<p class="header">${message:alenetwork} <a href="http://alenetwork.eu">ALE Network</a></p>
 			</div>
@@ -31,8 +32,8 @@
 				<img src="${context:img/ALE-logo.png}" />
 			</div>
 		</div>
+		
 		<t:body />
-		<t:languageSelector />
 		<div id="footer">
 			<p class="appVersion">Version: ${currentVersion} ${message:gitHubIssues} <a href="https://github.com/ALE-News/ale-news.github.com/issues">GitHub</a></p>
 		</div>

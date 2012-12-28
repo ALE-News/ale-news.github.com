@@ -17,9 +17,9 @@ public class LanguageSelector {
 	private static Map<String, String> flagNames = new HashMap<String, String>() ;
 	
 	static {
-		flagNames.put("en", "flag_rotate-02.png") ;
-		flagNames.put("de", "flag_rotate-03.png") ;
-		flagNames.put("es", "flag_rotate-12.png") ;
+		flagNames.put("en", "flag-02.png") ;
+		flagNames.put("de", "flag-03.png") ;
+		flagNames.put("es", "flag-12.png") ;
 	}
 	
 	@Property
