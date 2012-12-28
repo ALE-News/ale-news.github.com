@@ -1,0 +1,8 @@
+<div id="sidebar"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
+	<p class="section first">${message:adminSection}</p>
+	<p>${message:helpwanted}</p>
+	<p>
+		<t:pageLink page="admin/article/add">${message:addArticle}</t:pageLink>
+	</p>
+</div>

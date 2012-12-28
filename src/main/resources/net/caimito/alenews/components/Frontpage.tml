@@ -33,7 +33,14 @@
 			</div>
 		</div>
 		
-		<t:body />
+		<div class="grids">
+			<div class="grid-10">
+				<t:body />
+			</div>
+			<div class="grid-2">
+				<t:Sidebar/>
+			</div>
+		</div>
 		<div id="footer">
 			<p class="appVersion">Version: ${currentVersion} ${message:gitHubIssues} <a href="https://github.com/ALE-News/ale-news.github.com/issues">GitHub</a></p>
 		</div>

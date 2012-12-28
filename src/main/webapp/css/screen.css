@@ -10,20 +10,26 @@ A {
 
 .topicSection {
 	background-color: #F2F2F2 ;
+	font-weight: bold ;
+	font-size: 14px ;
+}
+
+DIV#articles {
+	border: thin sold #737373 ;
 }
 
 DIV.article H2 {
 	margin-top: 0px ;
-	margin-bottom: -15px ;
-	font-size: 16px;
+	margin-bottom: -10px ;
+	font-size: 14px;
 	font-weight: bold ;
 	color: #AB1413;
-	line-height: 20px;
+	line-height: 16px;
 }
 
 DIV.article .tagline {
-	font-size: 12px ;
-	margin-top: -12px
+	font-size: 10px ;
+	margin-top: -5px
 }
 
 P.header {
@@ -37,4 +43,20 @@ P.header {
 	background-color: #FAFAFA ;
 	font-size: 10px;
 	line-height: 12px ;
+}
+
+DIV#sidebar {
+	color: #737373 ;
+}
+
+DIV#sidebar P.section {
+	margin-top: 25px;
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #AB1413;
+	border-bottom: 1px dotted black;
+}
+
+DIV#sidebar P.section {
+	margin-top: 12px;
 }

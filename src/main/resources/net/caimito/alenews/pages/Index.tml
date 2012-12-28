@@ -1,11 +1,11 @@
 <html t:type="frontpage" title="ale-news Index"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd">
 
-<t:loop source="topicSections" value="topicSection">
-	<t:pagelink page="topic" context="topicSection"><p id="section_${topicSection}" class="topicSection">${topicSection}</p></t:pagelink>
-	<t:articlesDisplay topicSection="topicSection" numberOfArticles="3" articlesPerRow="3"/>		
-</t:loop>
+<div id="articles">
+	<t:loop source="topicSections" value="topicSection">
+		<t:pagelink page="topic" context="topicSection"><p id="section_${topicSection}" class="topicSection">${topicSection}</p></t:pagelink>
+		<t:articlesDisplay topicSection="topicSection" numberOfArticles="3" articlesPerRow="3"/>		
+	</t:loop>
+</div>
 
-<hr/>
-<p><t:pageLink page="admin/article/add">${message:addArticle}</t:pageLink> ${message:helpwanted}</p>
 </html>
