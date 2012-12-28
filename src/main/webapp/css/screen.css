@@ -1,5 +1,6 @@
 BODY {
 	font-family: Lucida, 'Lucida Grande', Tahoma, sans-serif ;
+	font-size: 12px ;
 }
 
 A {
@@ -34,6 +35,6 @@ P.header {
 	border-top: thin solid #737373 ;
 	color: #737373 ;
 	background-color: #FAFAFA ;
-	font-size: 12px;
-	line-height: 14px ;
+	font-size: 10px;
+	line-height: 12px ;
 }
