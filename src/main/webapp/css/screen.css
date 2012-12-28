@@ -20,3 +20,16 @@ DIV.article .tagline {
 	font-size: 12px ;
 	margin-top: -12px
 }
+
+P.header {
+	margin-top: 2px ;
+	margin-bottom: 2px ;
+}
+
+#footer {
+	border-top: thin solid #737373 ;
+	color: #737373 ;
+	background-color: #FAFAFA ;
+	font-size: 12px;
+	line-height: 14px ;
+}
