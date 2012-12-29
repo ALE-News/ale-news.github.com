@@ -30,7 +30,12 @@ public class AppModule {
 	}
 
 	public static void contributeFactoryDefaults(MappedConfiguration<String, Object> configuration) {
-		configuration.override(SymbolConstants.APPLICATION_VERSION, "1.0-SNAPSHOT");
+		ApplicationPropertiesService applicationPropertiesService = new ApplicationPropertiesService() ;
+		
+		if (applicationPropertiesService.getCurrentVersion().substring(1, 1).matches("[0-9]"))
+			configuration.override(SymbolConstants.APPLICATION_VERSION, applicationPropertiesService.getCurrentVersion());
+		else 
+			configuration.override(SymbolConstants.APPLICATION_VERSION, "SNAPSHOT");
 	}
 
 	public static void contributeApplicationDefaults(MappedConfiguration<String, Object> configuration) {
